@@ -1,0 +1,37 @@
+---
+abstract: 'Back channel SSH messaging'
+author:
+  - 'haarg - Graham Knop (cpan:HAARG) <haarg@haarg.org>'
+build_requires:
+  ExtUtils::MakeMaker: 0
+configure_requires:
+  ExtUtils::MakeMaker: 0
+dynamic_config: 1
+generated_by: 'ExtUtils::MakeMaker version 6.64, CPAN::Meta::Converter version 2.130880'
+license: perl
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: App-BCSSH
+no_index:
+  directory:
+    - t
+    - inc
+requires:
+  Browser::Open: 0
+  File::Temp: 0
+  IO::Select: 0
+  IO::Socket::UNIX: 0
+  Module::Find: 0
+  Module::Reader: 0
+  Module::Runtime: 0
+  Moo: 0
+  MooX::CaptainHook: 0
+  Package::Variant: 0
+  Pod::Perldoc: 0
+  Pod::Simple: 0
+  Try::Tiny: 0
+  parent: 0
+  perl: v5.8.1
+  strictures: 0
+version: 0.001000
