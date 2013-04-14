@@ -13,7 +13,7 @@ has _temp_dir   => (is => 'lazy', init_arg => undef);
 sub _build__temp_dir {
     my $self = shift;
     my $old_mask = umask($self->umask);
-    my $dir = File::Temp->newdir;
+    my $dir = File::Temp->newdir(TMPDIR => 1);
     umask($old_mask);
     return $dir;
 }
@@ -142,4 +142,24 @@ sub close_client {
 }
 
 1;
+__END__
 
+=head1 NAME
+
+App::BCSSH::Proxy - ssh-agent proxy with message intercept
+
+=head1 SYNOPSIS
+
+    my $proxy = App::BCSSH::Proxy->new(
+        agent_path => $agent_path,
+        handlers => {
+            (BCSSH_COMMAND) => sub {
+                my ($message, $send, $socket) = @_;
+                ...;
+            },
+        },
+    );
+    $ENV{SSH_AUTH_SOCK} = $proxy->socket_path;
+    $proxy->proxy(\*STDIN);
+
+=cut

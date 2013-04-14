@@ -1,4 +1,4 @@
-package App::BCSSH::Handler::SCP;
+package App::BCSSH::Handler::scp;
 use Moo;
 my $have_pty;
 BEGIN { eval {require IO::Pty::Easy; $have_pty = 1} }
@@ -12,6 +12,10 @@ has destination => (
             for ("$ENV{HOME}/Desktop", "$ENV{HOME}/desktop", $ENV{HOME});
     },
 );
+has scp => (
+    is => 'ro',
+    default => sub { 'scp' },
+);
 
 sub handle {
     my ($self, $send, $args) = @_;
@@ -21,7 +25,8 @@ sub handle {
     }
     my $socket = $send->();
     fork and return;
-    my @command = ('scp', '-r', '--', @$files, $self->destination);
+    my @scp = ref $self->scp ? @{ $self->scp } : $self->scp;
+    my @command = (@scp, '-r', '--', @$files, $self->destination);
     if ($have_pty) {
         my $pty = IO::Pty::Easy->new;
         $pty->spawn(@command);

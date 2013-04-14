@@ -10,10 +10,11 @@ lib/App/BCSSH/Command/scp.pm
 lib/App/BCSSH/Command/ssh.pm
 lib/App/BCSSH/Command/vi.pm
 lib/App/BCSSH/Handler.pm
-lib/App/BCSSH/Handler/Browse.pm
-lib/App/BCSSH/Handler/SCP.pm
-lib/App/BCSSH/Handler/Vi.pm
+lib/App/BCSSH/Handler/browse.pm
+lib/App/BCSSH/Handler/scp.pm
+lib/App/BCSSH/Handler/vi.pm
 lib/App/BCSSH/Help.pm
+lib/App/BCSSH/Inline.pm
 lib/App/BCSSH/Message.pm
 lib/App/BCSSH/Options.pm
 lib/App/BCSSH/Options/Accessor.pm
@@ -25,7 +26,7 @@ maint/Makefile.PL.include
 maint/pack
 maint/update-build-branch
 Makefile.PL
-MANIFEST			This list of files
+MANIFEST
 t/00-load.t
 META.yml                                 Module YAML meta-data (added by MakeMaker)
 META.json                                Module JSON meta-data (added by MakeMaker)

@@ -1,7 +1,7 @@
 package App::BCSSH::Pod;
 use strictures 1;
 
-use parent qw(Pod::Simple::PullParser Pod::Simple::Text);
+use base qw(Pod::Simple::PullParser Pod::Simple::Text);
 
 use Module::Reader qw(:all);
 
@@ -110,3 +110,15 @@ sub _pull_OPTIONS {
 }
 
 1;
+__END__
+
+=head1 NAME
+
+App::BCSSH::Pod - Read Pod abstract, synopsis, and options from loadable modules
+
+=head1 SYNOPSIS
+
+    my $parsed = App::BCSSH::Pod->parse($package);
+    my ($abstract, $synopsis, $options) = @{$parsed}{qw(abstract synopsis options)};
+
+=cut

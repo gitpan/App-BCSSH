@@ -18,7 +18,7 @@ has host => (is => 'ro', required => 1);
 sub command {
     my $class = ref $_[0] || $_[0];
     $class =~ s/^\Q${\__PACKAGE__}:://;
-    return lc $class;
+    return $class;
 }
 
 sub handle_message {
@@ -27,10 +27,10 @@ sub handle_message {
         my @response = @_;
         my $rmessage = @response ? encode_json(\@response) : '';
         $send->(BCSSH_SUCCESS, $rmessage);
+        return $socket;
     };
     my $handler_args = decode_json($args);
-    my @response = $self->handle($json_send, @$handler_args);
-    $json_send->(@response);
+    $self->handle($json_send, @$handler_args);
     return;
 }
 
@@ -43,3 +43,18 @@ sub handler {
 }
 
 1;
+__END__
+
+=head1 NAME
+
+App::BCSSH::Handler - Role for command handlers
+
+=head1 SYNOPSIS
+
+    with 'App::BCSSH::Handler';
+    sub handle {
+        my ($self, $json_send, @args) = @_;
+        my $socket = $json_send->(BCSSH_SUCCESS);
+    }
+
+=cut
