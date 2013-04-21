@@ -4,7 +4,7 @@
       "haarg - Graham Knop (cpan:HAARG) <haarg@haarg.org>"
    ],
    "dynamic_config" : 1,
-   "generated_by" : "ExtUtils::MakeMaker version 6.64, CPAN::Meta::Converter version 2.130880",
+   "generated_by" : "ExtUtils::MakeMaker version 6.66, CPAN::Meta::Converter version 2.130880",
    "license" : [
       "perl_5"
    ],
@@ -36,6 +36,7 @@
             "File::Temp" : "0.19",
             "IO::Select" : "0",
             "IO::Socket::UNIX" : "0",
+            "JSON" : "2",
             "Module::Find" : "0",
             "Module::Reader" : "0",
             "Module::Runtime" : "0",
@@ -46,11 +47,11 @@
             "Pod::Simple" : "0",
             "Safe::Isa" : "0",
             "Try::Tiny" : "0",
-            "perl" : "v5.8.1",
-            "strictures" : "0"
+            "perl" : "5.008001",
+            "strictures" : "1"
          }
       }
    },
    "release_status" : "stable",
-   "version" : "0.002000"
+   "version" : "0.002001"
 }
