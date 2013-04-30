@@ -35,4 +35,4 @@ requires:
   Try::Tiny: 0
   perl: 5.008001
   strictures: 1
-version: 0.002001
+version: 0.002002
